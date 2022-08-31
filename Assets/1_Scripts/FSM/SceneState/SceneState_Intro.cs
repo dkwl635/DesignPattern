@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SceneState_Intro : SceneState
 {
-    float m_time = 0.0f;
 
     public SceneState_Intro(SceneManager _sceneManager) : base(_sceneManager, eSCENE_STATE.INTRO)
     {
@@ -14,17 +13,16 @@ public class SceneState_Intro : SceneState
     public override void Enter(FsmMsg _msg)
     {
         base.Enter(_msg);
-        Debug.Log(m_ststeType.ToString());
+        UIManager.Instance.dialog.OpenDlg("UI/UIIntro/UIIntroDialog");
 
     }
 
     public override void Update()
     {
         base.Update();
-        m_time += Time.deltaTime;
-        if(m_time >= 1.0f)
+        if(Input.GetMouseButtonUp(0))
         {
-           m_sceneManager.fsm.SetState(eSCENE_STATE.LOBBY);
+            UIManager.Instance.fadeDialog.FadeIn(() => m_sceneManager.fsm.SetState(eSCENE_STATE.LOBBY));
         }
     }
 

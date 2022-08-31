@@ -12,6 +12,8 @@ public class SceneState_Lobby : SceneState
     public override void Enter(FsmMsg _msg)
     {
         base.Enter(_msg);
-        Debug.Log(m_ststeType.ToString());
+        UIManager.Instance.Clear();
+        UIManager.Instance.fadeDialog.FadeOut(UIManager.Instance.fadeDialog.Close);
+        UIManager.Instance.dialog.OpenDlg("UI/UILobby/UILobbyDialog");
     }
 }

@@ -17,6 +17,12 @@ public class UIDialog : MonoBase
         KUtil.UIUtil.SetBtnClick(btnCloses, OnClick_Close);
     }
 
+    public override void Open()
+    {
+        base.Open();
+        transform.SetAsLastSibling();
+    }
+
     public void OnClick_Close()
     {
         Close();

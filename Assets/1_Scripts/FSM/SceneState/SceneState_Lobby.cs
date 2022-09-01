@@ -13,7 +13,20 @@ public class SceneState_Lobby : SceneState
     {
         base.Enter(_msg);
         UIManager.Instance.Clear();
-        UIManager.Instance.fadeDialog.FadeOut(UIManager.Instance.fadeDialog.Close);
-        UIManager.Instance.dialog.OpenDlg("UI/UILobby/UILobbyDialog");
+        UIManager.Instance.fadeDialog.FadeOut(null);
+        UIManager.Instance.dialog.OpenDialog("UI/UILobby/UILobbyDialog");
+    }
+
+    public override void Update()
+    {
+        base.Update();
+
+        if (Input.GetMouseButtonUp(0))
+            GameData_Wealth.Instance.AddCount(eWEALTH_TYPE.GOLD, 1);
+
+        if (Input.GetMouseButtonUp(1))
+            GameData_Wealth.Instance.AddCount(eWEALTH_TYPE.DIAMOND, 1);
+
+
     }
 }

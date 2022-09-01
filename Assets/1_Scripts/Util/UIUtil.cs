@@ -57,6 +57,22 @@ namespace KUtil
 
         }
 
+        public static void SetText(Text _text, string _str)
+        {
+            if (_text == null)
+                return;
+
+            _text.text = _str;
+        }
+
+        public static void SetText(Text[] _text, string _str)
+        {
+            if (_text == null)
+                return;
+
+            for (int i = 0; i < _text.Length; i++) { _text[i].text = _str; }
+
+        }
 
 
 

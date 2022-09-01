@@ -22,7 +22,7 @@ public class UIDialogManagement : MonoBehaviour
         m_pooling.Clear();
     }
 
-    public UIDialog OpenDlg(string _path)
+    public UIDialog OpenDialog(string _path)
     {
         UIDialog _dlg = m_pooling.Get(_path);
         if(_dlg == null)

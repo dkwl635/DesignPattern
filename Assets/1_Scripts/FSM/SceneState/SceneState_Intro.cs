@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SceneState_Intro : SceneState
 {
+    FlowCommand m_flowCommand = new FlowCommand();
 
     public SceneState_Intro(SceneManager _sceneManager) : base(_sceneManager, eSCENE_STATE.INTRO)
     {
@@ -13,17 +14,20 @@ public class SceneState_Intro : SceneState
     public override void Enter(FsmMsg _msg)
     {
         base.Enter(_msg);
-        UIManager.Instance.dialog.OpenDlg("UI/UIIntro/UIIntroDialog");
+        UIManager.Instance.Clear();
+        UIManager.Instance.dialog.OpenDialog("UI/UIIntro/UIIntroDialog");
+
+        m_flowCommand.Add(new Command_FadeDialog(UIFadeDialog.eSTATE.FADE_OUT, null));
+        m_flowCommand.Add(new Command_DeltaTime(1.5f, null));
+        m_flowCommand.Add(new Command_OpenDialog("UI/UIIntro/UITabpToStartDialog"));
+        m_flowCommand.Add(new Command_FadeDialog(UIFadeDialog.eSTATE.FADE_IN, () => m_sceneManager.fsm.SetState(eSCENE_STATE.LOBBY)));
 
     }
 
     public override void Update()
     {
         base.Update();
-        if(Input.GetMouseButtonUp(0))
-        {
-            UIManager.Instance.fadeDialog.FadeIn(() => m_sceneManager.fsm.SetState(eSCENE_STATE.LOBBY));
-        }
+        m_flowCommand.Update();
     }
 
 }

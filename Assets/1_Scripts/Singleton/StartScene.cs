@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class StartScene : MonoBehaviour
 {
+
+    public eSCENE_STATE startState;
     private void Awake()
     {
-
+        GameDataMananger.Instance.Init();
         SceneManager.Instance.Init();
-        SceneManager.Instance.fsm.SetState(eSCENE_STATE.INTRO);
+        SceneManager.Instance.fsm.SetState(startState);
     }
 
 

@@ -70,6 +70,10 @@ public class UIFadeDialog : UIDialog
 
         if(m_time >= 1.0f)
         {
+            if (m_state == eSTATE.FADE_OUT)
+                Close();
+
+
             m_state = eSTATE.NONE;
             if (m_complete != null)
                 m_complete();

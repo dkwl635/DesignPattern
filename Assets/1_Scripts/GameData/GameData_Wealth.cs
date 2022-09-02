@@ -36,6 +36,7 @@ public class GameData_Wealth : GameData
     static public GameData_Wealth Instance { get { return GameDataMananger.Instance.GetData<GameData_Wealth>(); } }
 
     private List<GDWealth> m_wealthList = new List<GDWealth>();
+   
     public override void Init()
     {
         base.Init();

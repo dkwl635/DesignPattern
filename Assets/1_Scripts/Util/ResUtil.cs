@@ -31,8 +31,21 @@ namespace KUtil //다른 스크립과 겹치지 않게
             return _instantiate;
         }
 
-    
+        public static T Create<T>(string _path, Transform _parent) where T : Component
+        {
+            T _res = Load<T>(_path);
+            T _ins = GameObject.Instantiate<T>(_res);
+            if (_ins == null)
+                return null;
+
+            if (_parent != null)
+                _ins.transform.SetParent(_parent);
+            return _ins;
+
+        }
+
+
+
+
     }
-
-
 }

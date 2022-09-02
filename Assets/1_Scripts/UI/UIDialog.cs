@@ -23,8 +23,9 @@ public class UIDialog : MonoBase
         transform.SetAsLastSibling();
     }
 
-    public void OnClick_Close()
+    public virtual void OnClick_Close()
     {
         Close();
+
     }
 }

@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 47711336963087138}
   - component: {fileID: 47711336963087136}
   - component: {fileID: 47711336963087137}
-  - component: {fileID: 3231708266022026865}
+  - component: {fileID: 4090833223660034340}
   m_Layer: 5
   m_Name: UIIntroDialog
   m_TagString: Untagged
@@ -156,7 +156,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3231708266022026865
+--- !u!114 &4090833223660034340
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -165,14 +165,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 47711336963087139}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 461ec8296146eac42913aed8d5e97fc9, type: 3}
+  m_Script: {fileID: 11500000, guid: 41665cc903086b1408f22a3dfa877719, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   btnCloses: []
-  image: {fileID: 47711336963087137}
-  curve:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4

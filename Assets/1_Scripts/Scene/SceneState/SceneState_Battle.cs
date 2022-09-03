@@ -12,6 +12,7 @@ public class SceneState_Battle : SceneState
     public override void Enter(FsmMsg _msg)
     {
         base.Enter(_msg);
+        UIManager.Instance.Clear();
         GamePlayLogic_Battle _Battle = GamePlayManager.Instance.CreateGamePlayLogic<GamePlayLogic_Battle>();
         _Battle.fsm.SetState(eBATTLE_STATE.READY);
     }

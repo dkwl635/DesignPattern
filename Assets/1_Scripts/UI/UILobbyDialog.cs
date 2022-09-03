@@ -16,6 +16,7 @@ public class UILobbyDialog : UIDialog
     public void OnClick_Start()
     {
         UIManager.Instance.fadeDialog.FadeIn(() => SceneManager.Instance.fsm.SetState(eSCENE_STATE.BATTLE));
+        Close();
     }
 
 }

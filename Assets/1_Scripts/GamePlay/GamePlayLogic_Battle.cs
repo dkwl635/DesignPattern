@@ -7,6 +7,7 @@ public class GamePlayLogic_Battle : GamePlayLogic
     public static GamePlayLogic_Battle Instance { get { return GamePlayManager.Instance.GetGamePlayLogic<GamePlayLogic_Battle>(); } }
 
     public FsmClass<eBATTLE_STATE> fsm = new FsmClass<eBATTLE_STATE>();
+    public TileMap tileMap;
 
     public override void Init()
     {
@@ -19,6 +20,24 @@ public class GamePlayLogic_Battle : GamePlayLogic
         fsm.AddFsm(new BattleState_Result(this));
         
 
+    }
+
+    public void DeleteTileMap()
+    {
+        if (tileMap == null)
+            return;
+
+        Destroy(tileMap.gameObject);
+        tileMap = null;
+
+    }
+
+    public void CreateTileMap(TileMapRecord _record)
+    {
+        DeleteTileMap();
+        tileMap = new GameObject("TileMap").AddComponent<TileMap>();
+        tileMap.transform.SetParent(transform);
+        tileMap.Load(_record);
     }
 
     public override void UpdateLogic()

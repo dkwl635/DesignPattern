@@ -26,7 +26,11 @@ public class SceneState_Lobby : SceneState
 
         if (Input.GetMouseButtonUp(1))
             GameData_Wealth.Instance.AddCount(eWEALTH_TYPE.DIAMOND, 1);
+    }
 
-
+    public override void End()
+    {
+        base.End();
+       
     }
 }

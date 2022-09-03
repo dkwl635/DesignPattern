@@ -11,14 +11,14 @@ GameObject:
   - component: {fileID: 2678338350924762982}
   - component: {fileID: 2678338350924763001}
   - component: {fileID: 2678338350924763000}
-  - component: {fileID: 2678338350924762983}
+  - component: {fileID: 3871166934979458732}
   m_Layer: 5
   m_Name: UIBattlePauseDialog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2678338350924762982
 RectTransform:
   m_ObjectHideFlags: 0
@@ -78,7 +78,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2678338350924762983
+--- !u!114 &3871166934979458732
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -87,12 +87,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2678338350924762981}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b69c7c65d18fb946bf5d3fc4298205a, type: 3}
+  m_Script: {fileID: 11500000, guid: 8eeabaaf75b16f841998b1c3f732d61a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   btnCloses:
-  - {fileID: 2678338351709178119}
-  btnPause: {fileID: 2678338351403264596}
+  - {fileID: 2678338351403264596}
+  btnExit: {fileID: 2678338351709178119}
 --- !u!1 &2678338351344828772
 GameObject:
   m_ObjectHideFlags: 0

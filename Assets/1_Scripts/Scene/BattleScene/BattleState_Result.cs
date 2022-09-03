@@ -12,7 +12,7 @@ public class BattleState_Result : BattleState
     public override void Enter(FsmMsg _msg)
     {
         base.Enter(_msg);
-   
+        UIManager.Instance.dialog.OpenDialog("UI/UIBattle/UIBattleResultDialog");
     }
 
 }

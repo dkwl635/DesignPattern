@@ -13,6 +13,9 @@ public class BattleState_Ready : BattleState
     public override void Enter(FsmMsg _msg)
     {
         base.Enter(_msg);
+
+        m_logic.CreateTileMap(TileMapTable.Instance.Get(1));
+
         UIManager.Instance.dialog.OpenDialog("UI/UIBattle/UIBatlleDialog");
         UIManager.Instance.fadeDialog.FadeOut(null);
         flowCommand.Add(new Command_OpenDialog("UI/UIBattle/UIBattleReadyDialog"));

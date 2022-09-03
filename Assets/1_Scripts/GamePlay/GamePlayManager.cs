@@ -24,7 +24,7 @@ public class GamePlayManager : Singleton<GamePlayManager>
     {
         GameObject _obj = new GameObject(typeof(T).Name);
         _obj.transform.SetParent(transform);
-        T _component = _obj.GetComponent<T>();
+        T _component = _obj.AddComponent<T>();
         SetGamePlayLogic(_component);
         return _component;
     }

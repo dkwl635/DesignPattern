@@ -32,8 +32,8 @@ public class MemoryPooling<T> where T : MonoBase
             if (_list[i].item == null)
                 continue;
 
-            GameObject.Destroy(_list[i].item);
-
+            GameObject.Destroy(_list[i].item.gameObject);
+           
         }
         _list.Clear();
     }

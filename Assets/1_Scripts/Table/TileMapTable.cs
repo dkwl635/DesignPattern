@@ -71,8 +71,8 @@ public class TileMapTable : Table<TileMapRecord>
                 else
                     _tileRecord.tileType = eTILE_TYPE.NONE;
 
+             
                 _record.tileList.Add(_tileRecord);
-
             }       
         }
         list.Add(_record);

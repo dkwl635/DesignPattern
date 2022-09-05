@@ -11,6 +11,7 @@ public class TableManager : Singleton<TableManager>
         //초기화
         m_tableList.Clear();
         m_tableList.Add(typeof(TileMapTable), new TileMapTable());
+        m_tableList.Add(typeof(ActorTable), new ActorTable());
 
         //셋팅
         var _var = m_tableList.GetEnumerator();

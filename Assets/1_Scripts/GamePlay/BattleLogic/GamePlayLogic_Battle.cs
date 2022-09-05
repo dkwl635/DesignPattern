@@ -8,6 +8,7 @@ public class GamePlayLogic_Battle : GamePlayLogic
 
     public FsmClass<eBATTLE_STATE> fsm = new FsmClass<eBATTLE_STATE>();
     public TileMap tileMap;
+    public BattleLogic_MonsterSpawn monsterSpawn = new BattleLogic_MonsterSpawn();
 
     public override void Init()
     {

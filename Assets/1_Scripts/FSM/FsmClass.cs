@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class FsmClass<T> where T : System.Enum
 {
     protected Dictionary<T, FsmState<T>> m_stateList = new Dictionary<T, FsmState<T>>(); //상태에 따른 FsmState
     protected FsmState<T> m_state; //현재 상태
 
     protected bool m_isStateChangeing = false; //상태변경 가능한지
-    
+    public string strStateType; 
 
     public FsmState<T> getStste { get { return m_state; } }
     public T getStateType
@@ -62,6 +63,7 @@ public class FsmClass<T> where T : System.Enum
         if (m_state != null)
             m_state.End();
 
+        strStateType = _nextState.stateType.ToString();
         m_state = _nextState;
         m_state.Enter(_msg);
         m_isStateChangeing = false;

@@ -20,6 +20,8 @@ public class SceneState_Battle : SceneState
     public override void End()
     {
         base.End();
+        UIManager.Instance.Clear();
+        ActorManager.Instance.Clear();
         GamePlayManager.Instance.SetGamePlayLogic(null);
     }
 }

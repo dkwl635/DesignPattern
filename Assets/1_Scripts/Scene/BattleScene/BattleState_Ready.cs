@@ -14,6 +14,7 @@ public class BattleState_Ready : BattleState
     {
         base.Enter(_msg);
 
+        m_logic.monsterSpawn.Open();
         m_logic.CreateTileMap(TileMapTable.Instance.Get(1));
 
         UIManager.Instance.dialog.OpenDialog("UI/UIBattle/UIBatlleDialog");

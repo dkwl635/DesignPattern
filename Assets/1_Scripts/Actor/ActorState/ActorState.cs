@@ -7,6 +7,10 @@ public enum eACTOR_STATE
     NONE,
     IDLE,
     DIE,
+    ATTACK,
+    ATTACK_READY,
+    ATTACK_END,
+
 }
 
 public class ActorState : FsmState<eACTOR_STATE>

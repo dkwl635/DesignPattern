@@ -4,10 +4,28 @@ using UnityEngine;
 
 public class Actor : MonoBase
 {
+    static public bool IsFife(Actor _owner)
+    {
+        if (_owner == null)
+            return false;
+        if (_owner.isOpen == false)
+            return false;
+        if (_owner.fsm.getStateType == eACTOR_STATE.DIE)
+            return false;
+
+        return true;
+    }
+
+    public Transform center;
+    public Transform dummy_attack;
+
     public FsmClass<eACTOR_STATE> fsm;
     public ActorData data;
     public ActorMover mover;
     public ActorAttack attack;
+
+ 
+
     public override void Init()
     {
         base.Init();
@@ -31,7 +49,7 @@ public class Actor : MonoBase
     public Vector3 getPos { get { return transform.position; } }
     public Quaternion getRot { get { return transform.localRotation;      } }
 
-    public virtual void Open(ActorData _data, Vector3 _pos, Quaternion _rot)
+    public virtual void Open(ActorData _data, ActorFactoryCreator _creator, Vector3 _pos, Quaternion _rot)
     {
         base.Open();
         SetPos(_pos);
@@ -40,13 +58,16 @@ public class Actor : MonoBase
         data.Open(this);
         mover.Open();
         attack.Open();
+        fsm = _creator.CreateFsm(this);
         fsm.SetState(eACTOR_STATE.IDLE);
     }
 
     public override void UpdateLogic()
     {
         base.UpdateLogic();
-        fsm.Update();
         mover.Update();
+        attack.Update();
+        fsm.Update();
+      
     }
 }

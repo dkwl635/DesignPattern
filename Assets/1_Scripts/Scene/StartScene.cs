@@ -9,6 +9,7 @@ public class StartScene : MonoBehaviour
     private void Awake()
     {
         TableManager.Instance.Load();
+       
 
         GameDataMananger.Instance.Init();
         SceneManager.Instance.Init();

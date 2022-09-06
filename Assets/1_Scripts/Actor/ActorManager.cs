@@ -16,15 +16,40 @@ public class ActorManager : Singleton<ActorManager>
         m_actorPool.Clear();
     }
 
-    public Actor CreateActor(ActorData data, Vector3 pos ,Quaternion rot)
+    public Actor CreateActor(ActorData data, ActorFactoryCreator _creator, Vector3 pos ,Quaternion rot)
     {
         Actor actor = m_actorPool.Get(data.getActorRecord.path, null);
         if (actor == null)
             return null;
 
-        actor.Open(data, pos, rot);
+        actor.Open(data, _creator, pos, rot);
         return actor;
     }
+    public Actor FindNear(Actor _owner, eTEAM _findTeam, float _atkDis)
+    {
+        float minDis = float.MaxValue;
+        Actor nearActor = null;
+
+        for (int i = 0; i < m_actorPool.activeList.Count; i++)
+        {
+            Actor actor = m_actorPool.activeList[i].item;
+            if (actor == null)
+                continue;
+            if (actor == _owner)
+                continue;
+        
+            float dis = (actor.getPos - _owner.getPos).magnitude;
+            if(dis < minDis)
+            {
+                minDis = dis;
+                nearActor = actor;
+            }
+        }
+
+        return nearActor;
+    }
+
+
 
     public void UpdateLogic()
     {

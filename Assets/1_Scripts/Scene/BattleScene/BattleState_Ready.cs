@@ -15,7 +15,11 @@ public class BattleState_Ready : BattleState
         base.Enter(_msg);
 
         m_logic.monsterSpawn.Open();
+        m_logic.playData.Open();
         m_logic.CreateTileMap(TileMapTable.Instance.Get(1));
+
+        Tile _spanwTile = m_logic.tileMap.GetTile(eTILE_TYPE.SPAWN);
+        ActorManager.Instance.CreateActor(new ActorData(eTEAM.PLAYER, ActorTable.Instance.Get(1)), new ActorFactoryCreator_Tower(), _spanwTile.transform.position, Quaternion.identity);
 
         UIManager.Instance.dialog.OpenDialog("UI/UIBattle/UIBatlleDialog");
         UIManager.Instance.fadeDialog.FadeOut(null);

@@ -9,6 +9,7 @@ public class GamePlayLogic_Battle : GamePlayLogic
     public FsmClass<eBATTLE_STATE> fsm = new FsmClass<eBATTLE_STATE>();
     public TileMap tileMap;
     public BattleLogic_MonsterSpawn monsterSpawn = new BattleLogic_MonsterSpawn();
+    public BattleLogic_PlayData playData = new BattleLogic_PlayData();
 
     public override void Init()
     {
@@ -44,6 +45,7 @@ public class GamePlayLogic_Battle : GamePlayLogic
     public override void UpdateLogic()
     {
         base.UpdateLogic();
+        playData.Update(); 
         fsm.Update();
     }
 

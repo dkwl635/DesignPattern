@@ -30,6 +30,11 @@ public class ActorData
             m_hp = 0;
     }
 
+    public void AddHp(int hp)
+    {
+        SetHp(this.hp + hp);
+    }
+
     public void SetMaxHp(int maxHp)
     {
         m_maxHp = maxHp;
@@ -40,6 +45,10 @@ public class ActorData
     public virtual void Open(Actor owner)
     {
         m_owner = owner;
+        SetMaxHp(m_actorRecord.maxHp);
+        SetHp(maxHp);
     }
+
+  
 
 }

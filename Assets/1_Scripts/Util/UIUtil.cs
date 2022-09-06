@@ -74,6 +74,13 @@ namespace KUtil
 
         }
 
+        public static void SetValue(Slider _slider , float _value)
+        {
+            if (_slider == null)
+                return;
+            _slider.value = _value;
+        }
+
 
 
     }// public static class UIUtil

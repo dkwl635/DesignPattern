@@ -10,10 +10,12 @@ public class BattleLogic_MonsterSpawn
     protected int m_monsterSpawnCount = 0;
     protected int m_monsterMaxSpawnCount = 10;
 
+    ActorFactoryCreator m_creator = new ActorFactorCreator_Monster();
+
     public virtual void Open()
     {
         m_monsterSpawnCount = 0;
-        m_monsterSpawnTime = 0.0f;
+        m_monsterSpawnTime = m_monsterMaxSpawnTime;
     }
 
     public virtual void Update()
@@ -28,7 +30,8 @@ public class BattleLogic_MonsterSpawn
         m_monsterMaxSpawnCount++;
 
         Tile startTile = GamePlayLogic_Battle.Instance.tileMap.GetTile(eTILE_TYPE.START);
-        ActorManager.Instance.CreateActor(new ActorData(eTEAM.MONSTER, ActorTable.Instance.Get(10)), startTile.transform.position, Quaternion.AngleAxis(-90.0f, Vector3.up));
+        ActorManager.Instance.CreateActor(new ActorData(eTEAM.MONSTER, ActorTable.Instance.Get(10)),
+            m_creator ,startTile.transform.position, Quaternion.AngleAxis(-90.0f, Vector3.up));
         
     }
 

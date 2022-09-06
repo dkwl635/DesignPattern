@@ -12,6 +12,12 @@ public class ActorState_Idle_Mob : ActorState
     public override void Update()
     {
         base.Update();
+        if(m_owner.data.hp <= 0 )
+        {
+            m_owner.fsm.SetState(eACTOR_STATE.DIE);
+            return;
+        }
+
         if(m_owner.mover.isStop == true)
         {
             Tile curTile = m_owner.attack.GetCurTile();
@@ -19,6 +25,7 @@ public class ActorState_Idle_Mob : ActorState
 
             if (curTile == null || curTile.titleType == eTILE_TYPE.TARGET)
             {
+                GamePlayLogic_Battle.Instance.playData.AddHp(-1); 
                 m_owner.fsm.SetState(eACTOR_STATE.DIE);
                 return;
             }

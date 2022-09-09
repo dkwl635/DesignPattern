@@ -21,11 +21,8 @@ public class ActorState_AttackReady : ActorState
 
         Vector3 dir = target.getPos - m_owner.getPos;
         Quaternion rot = Quaternion.LookRotation(dir.normalized);
-        m_owner.center.rotation = Quaternion.Lerp(m_owner.center.rotation, rot, Time.deltaTime * 1.0f);
-        if(Vector3.Angle(m_owner.center.forward, dir .normalized) < 1.0f)
-        {
-            m_owner.fsm.SetState(eACTOR_STATE.ATTACK);
-        }
+        m_owner.center.rotation = rot;
+        m_owner.fsm.SetState(eACTOR_STATE.ATTACK);
     }
 
 }

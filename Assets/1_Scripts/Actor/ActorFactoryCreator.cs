@@ -14,7 +14,8 @@ public class ActorFactorCreator_Monster : ActorFactoryCreator
     {
         FsmClass<eACTOR_STATE> _fsm = new FsmClass<eACTOR_STATE>();
         _fsm.AddFsm(new ActorState_Idle_Mob(owner));
-        _fsm.AddFsm(new ActorSTATe_Die(owner));
+        _fsm.AddFsm(new ActorState_Die_Mob(owner));
+        _fsm.AddFsm(new ActorState_Attack_Mob(owner));
 
         return _fsm;
     }

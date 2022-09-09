@@ -17,6 +17,7 @@ public class UIBattlePauseDialog : UIDialog
     public void OnClick_Exit()
     {
         Close();
+        GamePlayLogic_Battle.Instance.playData.SetBattleResult(eBATTLE_RESULT.FAILED);
         GamePlayLogic_Battle.Instance.fsm.SetState(eBATTLE_STATE.RESULT);
     }
 

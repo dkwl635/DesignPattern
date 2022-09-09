@@ -10,6 +10,9 @@ public class BattleLogic_MonsterSpawn
     protected int m_monsterSpawnCount = 0;
     protected int m_monsterMaxSpawnCount = 10;
 
+    public int monsterSpawnCount {  get { return m_monsterSpawnCount; } }
+    public int monsterMaxSpawnCount {  get { return m_monsterMaxSpawnCount; } }
+
     ActorFactoryCreator m_creator = new ActorFactorCreator_Monster();
 
     public virtual void Open()

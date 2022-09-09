@@ -9,7 +9,8 @@ public class UIBattleDialog : UIDialog , IObserver
     public Slider sliderHp;
     public Text textHp;
     public Text textBattleCoin;
-
+    public Text textScore; 
+    
     private bool m_isApplicationQuit = false;
 
     private void OnApplicationQuit()
@@ -47,6 +48,7 @@ public class UIBattleDialog : UIDialog , IObserver
         KUtil.UIUtil.SetText(textHp, string.Format("{0}/{1}", _PlayData.hp, _PlayData.maxHp));
         KUtil.UIUtil.SetValue(sliderHp, _PlayData.hp / (float)_PlayData.maxHp);
         KUtil.UIUtil.SetText(textBattleCoin, _PlayData.battleCoin.ToString());
+        KUtil.UIUtil.SetText(textScore, _PlayData.score.ToString());
     }
 
     public void OnClick_Pause()

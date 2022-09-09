@@ -15,11 +15,13 @@ public class BattleLogic_PlayData : Subject
     protected int m_maxHp;
     protected int m_battleCoin;
     protected eBATTLE_RESULT m_batteResult;
+    protected int m_score; 
 
     public int hp { get { return m_hp; } }
     public int maxHp {  get { return m_maxHp; } }
     public int battleCoin { get { return m_battleCoin; } }
     public eBATTLE_RESULT battleResult { get { return m_batteResult; } }
+    public int score { get { return m_score; } }
 
     public void SetHp(int _hp)
     {
@@ -52,6 +54,19 @@ public class BattleLogic_PlayData : Subject
         SetNorify();      
     }
 
+    public void SetScore(int _score)
+    {
+        m_score = _score;
+        if (m_score < 0)
+            m_score = 0;
+    }
+
+    public void AddScore(int _score)
+    {
+        SetScore(m_score + _score);
+    }
+
+
     public void AddBattleCoin(int coin)
     {
         SetBattleCoin(battleCoin + coin);
@@ -59,10 +74,12 @@ public class BattleLogic_PlayData : Subject
 
     public void Open()
     {
-        m_battleCoin = 0;
-        m_batteResult = eBATTLE_RESULT.NONE;
+       
         SetMaxHp(3);
         SetHp(maxHp);
+        SetBattleCoin(10);
+        SetBattleResult(eBATTLE_RESULT.NONE);
+        SetScore(0);
     }
 
     public void SetBattleResult( eBATTLE_RESULT _battleResult)

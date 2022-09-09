@@ -62,6 +62,13 @@ namespace KUtil
             if (_text == null)
                 return;
 
+            if(string.IsNullOrWhiteSpace(_str) == true)
+            {
+                _text.gameObject.SetActive(false);
+                return;
+            }
+
+            _text.gameObject.SetActive(true); 
             _text.text = _str;
         }
 
@@ -81,6 +88,14 @@ namespace KUtil
             _slider.value = _value;
         }
 
+        public static void SetColor(Graphic _graphic , Color color)
+        {
+            if (_graphic == null)
+                return;
+
+            _graphic.color = color;
+
+        }
 
 
     }// public static class UIUtil

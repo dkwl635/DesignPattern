@@ -25,8 +25,8 @@ public class ActorState_Idle_Mob : ActorState
 
             if (curTile == null || curTile.titleType == eTILE_TYPE.TARGET)
             {
-                GamePlayLogic_Battle.Instance.playData.AddHp(-1); 
-                m_owner.fsm.SetState(eACTOR_STATE.DIE);
+             
+                m_owner.fsm.SetState(eACTOR_STATE.ATTACK);
                 return;
             }
          

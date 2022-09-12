@@ -38,8 +38,9 @@ public class UISpawnDialog : UIDialog,IObserver
 
     public void ResetData()
     {
-        KUtil.UIUtil.SetText(textSpawnCost, m_spawnRecord.cost.ToString());
-        KUtil.UIUtil.SetColor(textSpawnCost, GamePlayLogic_Battle.Instance.playData.battleCoin < m_spawnRecord.cost ? Color.red : Color.black);
+        int cost = (int)m_spawnRecord.GetStatValue(eSTAT_TYPE.COST, 1);
+        KUtil.UIUtil.SetText(textSpawnCost, cost.ToString());
+        KUtil.UIUtil.SetColor(textSpawnCost, GamePlayLogic_Battle.Instance.playData.battleCoin < cost ? Color.red : Color.black);
     }
 
     public virtual void Open(Tile _tile)
@@ -52,14 +53,15 @@ public class UISpawnDialog : UIDialog,IObserver
 
     public void OnClick_Spawn()
     {
-        if (m_spawnRecord.cost > GamePlayLogic_Battle.Instance.playData.battleCoin)
+        int cost = (int)m_spawnRecord.GetStatValue(eSTAT_TYPE.COST, 1);
+        if (cost > GamePlayLogic_Battle.Instance.playData.battleCoin)
             return;
 
-        ActorData _data =new ActorData(eTEAM.PLAYER, m_spawnRecord);
+        ActorData _data = new ActorData_Tower(eTEAM.PLAYER, GameData_Tower.Instance.GetTower(m_spawnRecord.index));  
         ActorManager.Instance.CreateActor(_data, new ActorFactoryCreator_Tower(), m_tile.transform.position, Quaternion.identity);
 
         m_tile.SetTileType(eTILE_TYPE.NONE);
-        GamePlayLogic_Battle.Instance.playData.AddBattleCoin(-m_spawnRecord.cost);
+        GamePlayLogic_Battle.Instance.playData.AddBattleCoin(-cost);
         Close();
     }
 

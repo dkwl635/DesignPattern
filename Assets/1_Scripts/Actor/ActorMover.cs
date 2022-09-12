@@ -46,7 +46,7 @@ public class ActorMover
         if (m_isStop)
             return;
 
-        float speed = Time.deltaTime * m_owner.data.getActorRecord.moveSpeed;
+        float speed = Time.deltaTime * m_owner.data.GetStatValue(eSTAT_TYPE.MOVE_SPEED);
         Vector3 movement = m_target - m_owner.getPos;
         SetRotate(movement);
         if(speed < movement.magnitude)

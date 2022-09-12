@@ -45,10 +45,14 @@ public class ActorData
     public virtual void Open(Actor owner)
     {
         m_owner = owner;
-        SetMaxHp(m_actorRecord.maxHp);
+        SetMaxHp((int)GetStatValue(eSTAT_TYPE.MAX_HP));
         SetHp(maxHp);
     }
 
+    public virtual float GetStatValue(eSTAT_TYPE statType)
+    {
+        return m_actorRecord.GetStatValue(statType, 1);
+    }
   
 
 }

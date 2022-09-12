@@ -6,11 +6,12 @@ using UnityEngine.UI;
 public class UILobbyDialog : UIDialog
 {
     public Button btnStart;
-
+    public Button btnUpgrade;
     public override void Init()
     {
         base.Init();
         KUtil.UIUtil.SetBtnClick(btnStart, OnClick_Start);
+        KUtil.UIUtil.SetBtnClick(btnUpgrade, OnClick_Upgrade);
     }
 
     public void OnClick_Start()
@@ -19,4 +20,8 @@ public class UILobbyDialog : UIDialog
         Close();
     }
 
+    public void OnClick_Upgrade()
+    {
+        UIManager.Instance.dialog.OpenDialog("UI/UILobby/UIUpgradeDialog");
+    }
 }

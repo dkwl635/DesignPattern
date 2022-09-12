@@ -18,7 +18,7 @@ public class ActorAttack
     public virtual void Open()
     {
         preTile = null;
-        m_atkTime = m_owner.data.getActorRecord.atkTime;
+        m_atkTime = m_owner.data.GetStatValue(eSTAT_TYPE.ATK_TIME);
     }
     public Tile GetCurTile()
     {      
@@ -32,14 +32,14 @@ public class ActorAttack
 
     public bool isAtkEnable
     {
-        get{ return m_atkTime >= m_owner.data.getActorRecord.atkTime; }
+        get{ return m_atkTime >= m_owner.data.GetStatValue(eSTAT_TYPE.ATK_TIME); }
     }
 
     public Actor getTarget { get { return m_target; } }
 
     public void Update()
     {
-        if(m_owner.data.getActorRecord.atkTime > m_atkTime)
+        if(m_owner.data.GetStatValue(eSTAT_TYPE.ATK_TIME) > m_atkTime)
         {
             m_atkTime += Time.deltaTime;
         }

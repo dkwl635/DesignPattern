@@ -372,6 +372,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   btnCloses:
   - {fileID: 3169750257764948163}
+  - {fileID: 3169750258839623127}
   parentButton: {fileID: 3169750257384926905}
   btnSpawn: {fileID: 3169750257764948163}
   textSpawnCost: {fileID: 3169750257040234383}

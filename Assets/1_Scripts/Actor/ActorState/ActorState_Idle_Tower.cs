@@ -15,7 +15,7 @@ public class ActorState_Idle_Tower : ActorState
         if (m_owner.attack.isAtkEnable == false)
             return;
 
-        Actor target = ActorManager.Instance.FindNear(m_owner, eTEAM.MONSTER, m_owner.data.getActorRecord.atkDis);
+        Actor target = ActorManager.Instance.FindNear(m_owner, eTEAM.MONSTER, m_owner.data.GetStatValue(eSTAT_TYPE.ATK_DIS));
         if (Actor.IsFife(target) == false)
             return;
 

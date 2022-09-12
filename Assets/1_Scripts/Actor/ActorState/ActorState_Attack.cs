@@ -12,7 +12,7 @@ public class ActorState_Attack : ActorState
     public override void Update()
     {
         base.Update();
-        ActorManager.Instance.CreateMissile("Missile/missile_1", eTEAM.MONSTER, m_owner.data.getActorRecord.atk,
+        ActorManager.Instance.CreateMissile("Missile/missile_1", eTEAM.MONSTER, (int)m_owner.data.GetStatValue(eSTAT_TYPE.ATK),
             m_owner.dummy_attack.position, m_owner.dummy_attack.rotation * Vector3.forward * 5.0f);
         m_owner.fsm.SetState(eACTOR_STATE.ATTACK_END);
     }

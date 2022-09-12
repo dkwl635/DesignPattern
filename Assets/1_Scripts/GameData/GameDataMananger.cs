@@ -9,6 +9,18 @@ public class GameDataMananger : Singleton<GameDataMananger>
     public void Init()
     {
         AddData<GameData_Wealth>();
+        AddData<GameData_Tower>();
+
+        Load();
+    }
+
+    public virtual void Load()
+    {
+        var _var = m_dataList.GetEnumerator();
+        while (_var.MoveNext())
+        {
+            _var.Current.Value.Init();
+        }
     }
 
     public void AddData<TGameData>() where TGameData : GameData, new ()
